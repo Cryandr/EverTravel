@@ -63,56 +63,38 @@
 
   <div class="pricing-grid">
 
-    <div class="price-card">
+    @for (tour of tours; track tour.name) {
 
-      <div class="tour-image norway-tour"></div>
+      <div class="price-card">
 
-      <h3>Norway Adventure</h3>
+        <div class="tour-image"></div>
 
-      <p>7 days among fjords and mountains.</p>
+        <h3>{{ tour.name }}</h3>
 
-      <div class="price">€299</div>
+        <p>{{ tour.description }}</p>
 
-      <button (click)="openBooking()">
-        Book Tour
-      </button>
+        <div class="tour-meta">
+          <span>⭐ {{ tour.rating }}</span>
+          <span>👥 {{ tour.travelers }} travelers</span>
+        </div>
 
-    </div>
+        <div class="tour-info">
+          ⏳ {{ tour.days }} days
+        </div>
 
-    <div class="price-card popular">
+        <div class="price">
+          €{{ tour.price }}
+        </div>
 
-      <div class="tour-image cyprus-tour"></div>
+        <button (click)="openBooking()">
+          Book Tour
+        </button>
 
-      <h3>Cyprus Escape</h3>
+      </div>
 
-      <p>5 days by the Mediterranean Sea.</p>
-
-      <div class="price">€199</div>
-
-      <button (click)="openBooking()">
-        Book Tour
-      </button>
-
-    </div>
-
-    <div class="price-card">
-
-      <div class="tour-image swiss-tour"></div>
-
-      <h3>Swiss Alps</h3>
-
-      <p>10 days in the heart of the Alps.</p>
-
-      <div class="price">€499</div>
-
-      <button (click)="openBooking()">
-        Book Tour
-      </button>
-
-    </div>
+    }
 
   </div>
-
 </section>
 
 <section id="contact" class="contact">
@@ -241,14 +223,29 @@
 
     <div class="modal">
 
-      <h2>✈️ Tour Booking</h2>
-      <p>Leave your details and we'll contact you.</p>
+      <h2>✈️ Book Your Dream Tour</h2>
+      <p>Leave your details and we'll contact you shortly.</p>
 
-      <input type="text" placeholder="Your name">
+      <input
+        type="text"
+        placeholder="Your name"
+        [(ngModel)]="bookingData.name">
 
-      <input type="email" placeholder="Your email">
+      <input
+        type="email"
+        placeholder="Your email"
+        [(ngModel)]="bookingData.email">
 
-      <button>Send Request</button>
+      <select
+        [(ngModel)]="bookingData.destination">
+
+        <option>Norway</option>
+        <option>Cyprus</option>
+        <option>Switzerland</option>
+
+      </select>
+
+      <button class="submit-btn" (click)="submitBooking()">Send Request</button>
 
       <button class="close-btn" (click)="closeBooking()">Close</button>
 
