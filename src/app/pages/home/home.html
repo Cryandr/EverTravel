@@ -63,23 +63,23 @@
 
   <div class="pricing-grid">
 
-    @for (tour of tours; track tour.name) {
+    @for(tour of tours; track tour.name){
 
       <div class="price-card">
 
-        <div class="tour-image"></div>
+        <div
+          class="tour-image"
+          [ngClass]="tour.image">
+        </div>
 
         <h3>{{ tour.name }}</h3>
 
-        <p>{{ tour.description }}</p>
+        <p>
+          {{ tour.days }} days adventure
+        </p>
 
         <div class="tour-meta">
           <span>⭐ {{ tour.rating }}</span>
-          <span>👥 {{ tour.travelers }} travelers</span>
-        </div>
-
-        <div class="tour-info">
-          ⏳ {{ tour.days }} days
         </div>
 
         <div class="price">
