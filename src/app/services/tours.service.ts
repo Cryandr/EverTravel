@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -7,31 +7,13 @@ import { of } from 'rxjs';
 
 export class ToursService {
 
+  constructor(
+    private http: HttpClient
+  ) {}
+
   getTours() {
-      return of([[
-      {
-        name: 'Norway Adventure',
-        days: 7,
-        price: 299,
-        rating: 4.9,
-        image: 'norway-tour'
-      },
-
-      {
-        name: 'Cyprus Escape',
-        days: 5,
-        price: 199,
-        rating: 4.6,
-        image: 'cyprus-tour'
-      },
-
-      {
-        name: 'Swiss Alps',
-        days: 10,
-        price: 499,
-        rating: 4.8,
-        image: 'swiss-tour'
-      }
-    ]]);
+    return this.http.get<any[]>(
+      'http://localhost:3000/tours'
+    );
   }
 }

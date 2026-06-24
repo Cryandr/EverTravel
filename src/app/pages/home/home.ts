@@ -2,12 +2,14 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ToursService } from '../../services/tours.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   imports: [
     RouterLink,
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
   templateUrl: './home.html',
   styleUrl: './home.css'
@@ -19,8 +21,13 @@ export class Home {
   constructor(
     private toursService: ToursService
   ) {
-    this.toursService.getTours().subscribe(data => {this.tours = data;
-      });
+    //Temporary check
+    this.toursService.getTours().subscribe(data => {
+      console.log('Tours from API:', data);
+      this.tours = data;
+    });
+
+
   }
 
   showBooking = false;
@@ -43,4 +50,5 @@ export class Home {
   closeBooking() {
     this.showBooking = false;
   }
+
 }
