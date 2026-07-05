@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ToursService } from '../../services/tours.service';
+import { TourCard } from '../../shared/tour-card/tour-card';
 import { CommonModule } from '@angular/common';
 
 export interface Tour {
@@ -15,10 +16,12 @@ export interface Tour {
 
 @Component({
   selector: 'app-home',
+  standalone: true,
   imports: [
     RouterLink,
     FormsModule,
-    CommonModule
+    CommonModule,
+    TourCard
   ],
   templateUrl: './home.html',
   styleUrl: './home.css'

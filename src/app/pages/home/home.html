@@ -61,7 +61,7 @@
     ✈️ Popular Tours
   </h2>
 
-  <div class="pricing-grid">
+  <!--<div class="pricing-grid">
 
     @for(tour of tours; track tour.name){
 
@@ -91,6 +91,18 @@
         </button>
 
       </div>
+
+    }
+
+  </div>-->
+  <div class="pricing-grid">
+
+    @for(tour of tours; track tour.id){
+
+      <app-tour-card
+        [tour]="tour"
+        (book)="openBooking()">
+      </app-tour-card>
 
     }
 
