@@ -4,6 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { ToursService } from '../../services/tours.service';
 import { CommonModule } from '@angular/common';
 
+export interface Tour {
+  id: number;
+  name: string;
+  days: number;
+  price: number;
+  rating: number;
+  image: string;
+}
+
 @Component({
   selector: 'app-home',
   imports: [
@@ -16,7 +25,7 @@ import { CommonModule } from '@angular/common';
 })
 export class Home {
 
-  tours: any[] = [];
+  tours: Tour[] = [];
 
   constructor(
     private toursService: ToursService
