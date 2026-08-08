@@ -1,5 +1,6 @@
 import {Component, Input, Output, EventEmitter, output} from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Tour } from '../../models/tour.model';
 
 @Component({
   selector: 'app-tour-card',
@@ -9,7 +10,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './tour-card.css'
 })
 export class TourCard {
-  @Input() tour: any;
+
+  @Input({ required: true })
+  tour!: Tour;
 
   @Output() book = new EventEmitter<void>();
 

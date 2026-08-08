@@ -4,15 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ToursService } from '../../services/tours.service';
 import { TourCard } from '../../shared/tour-card/tour-card';
 import { CommonModule } from '@angular/common';
-
-export interface Tour {
-  id: number;
-  name: string;
-  days: number;
-  price: number;
-  rating: number;
-  image: string;
-}
+import { Tour } from '../../models/tour.model';
 
 @Component({
   selector: 'app-home',
@@ -62,5 +54,4 @@ export class Home {
   closeBooking() {
     this.showBooking = false;
   }
-
 }

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Tour } from '../models/tour.model';
 
 @Injectable({
   providedIn: 'root'
